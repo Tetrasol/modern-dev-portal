@@ -19,6 +19,11 @@ You will need various tools to get started with development. Below are the links
         + app-engine-python
         + alpha, beta, app, preview (optional)
 * [Node.js](https://nodejs.org/)
+    - https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
+    - `$ curl -sL https://deb.nodesource.com/setup | sudo bash -`
+    - `$ sudo apt-get install nodejs`
+    - `sudo apt-get install npm`
+    - `sudo apt-get install build-essential libssl-dev`
     - [Bower](http://bower.io/) `$ npm install -g bower`
         + [AngularJS](https://angularjs.org/)
         + [Angular Material](https://material.angularjs.org/)
@@ -34,10 +39,21 @@ From within your project directory run the commands below to get started.
 ``` 
 # Clone the repositories
 $ gcloud init coqui-dev-portal
+
+## these steps might not be needed - need to confirm
 $ cd coqui-dev-portal
 $ git clone https://bitbucket client
 $ cd default
-$ git pull https://bitbucket production
+$ git pull https://g0r1v3r4@bitbucket.org/moderndev/portal.git
 ```
 
 { "keys": ["alt+m"], "command": "markdown_preview", "args": {"target": "browser", "parser":"markdown"} }
+
+## Working with the repository
+* Make a new branch every time using `$ git checkout -b <nameofbranch>`
+* When finished working with the branch push the code to Bitbucket
+* Creat pull request to `master` when ready to push changes to production
+
+## Working with the development Server for app engine and deploy
++ `$ gcloud preview app run <nameofdirectory>` will run the dev server for `localhost` testing
++ `$ gcloud preview app deploy <nameofdirectory` will deploy the branch to app engine instance
