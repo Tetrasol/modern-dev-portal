@@ -1,0 +1,14 @@
+# application: coqui-dev-portal
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /
+  static_files: static/index.html
+  upload: static/index.html
+
+libraries:
+- name: webapp2
+  version: "latest" # "2.5.2"
