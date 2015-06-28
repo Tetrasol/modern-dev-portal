@@ -1,14 +1,46 @@
-# application: coqui-dev-portal
+application: coqui-dev-portal
 version: 1
 runtime: python27
 api_version: 1
 threadsafe: yes
 
 handlers:
-- url: /
-  static_files: static/index.html
-  upload: static/index.html
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+- url: /vendor
+  static_dir: vendor
+
+- url: /images
+  static_dir: images
+
+- url: /blue-footer
+  static_dir: blue-footer
+
+- url: /blue-header
+  static_dir: blue-header
+
+- url: /grey-body
+  static_dir: grey-body
+
+- url: /home
+  static_dir: home
+
+- url: /mdo-card
+  static_dir: mdo-card
+
+- url: .*
+  script: main.app
 
 libraries:
 - name: webapp2
-  version: "latest" # "2.5.2"
+  version: "2.5.2"
+- name: jinja2
+  version: latest
