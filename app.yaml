@@ -5,10 +5,35 @@ api_version: 1
 threadsafe: yes
 
 handlers:
+# site root
 - url: /
-  static_files: static/index.html
-  upload: static/index.html
+  static_files: app/index.html
+  upload: app/index.html
+
+  # index files
+# - url: /(.+)/
+#   static_files: app/\1/index.html
+#   upload: app/(.+)/index.html
+#
+# - url: /(.+)
+#   static_files: app/\1/index.html
+#   upload: app/(.+)/index.html
+
+- url: /(.*\.html)
+  mime_type: text/html
+  static_files: app/\1
+  upload: app/(.*\.html)
+
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: app/\1
+  upload: app/(.*\.css)
+
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: app/\1
+  upload: app/(.*\.js)
 
 libraries:
 - name: webapp2
-  version: "latest" # "2.5.2"
+  version: latest # "2.5.2"
